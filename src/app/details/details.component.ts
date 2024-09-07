@@ -52,7 +52,9 @@ export class DetailsComponent {
   
   constructor(){
     const housingLocationId = Number(this.route.snapshot.params['id']); // get id from the route
-    this.housingLocation = this.housingService.getAllHousingLocationById(housingLocationId);
+    this.housingService.getAllHousingLocationById(housingLocationId).then(housingLocation => {
+      this.housingLocation = housingLocation;
+    });
   }
 
   submitApplication(){
